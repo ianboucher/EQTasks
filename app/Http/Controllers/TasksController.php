@@ -20,23 +20,15 @@ class TasksController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @return Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $userId)
     {
-        return $request;
+        $user = User::find($userId);
+        $task = $user->tasks()->create(['description' => $request->input('description')]);
+        return $task;
     }
 
     /**
@@ -45,20 +37,9 @@ class TasksController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show($taskId)
     {
         return Task::find($id);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
@@ -69,7 +50,11 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $request;
+        $task = Task::find($id);
+        $task->description = $request->input('description');
+        $task->save();
+        
+        return $task;
     }
 
     /**

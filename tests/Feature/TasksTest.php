@@ -16,7 +16,7 @@ class TasksTest extends TestCase
     */
     public function testNewTask()
     {
-        $response = $this->json('POST', '/api/v1.0.0/users/1/tasks', [
+        $response = $this->json('POST', '/api/v1.0.0/users/11/tasks', [
             'description' => 'A task from PHPUnit',
         ]);
 

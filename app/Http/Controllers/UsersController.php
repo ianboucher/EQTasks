@@ -35,7 +35,13 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $credentials = [
+            'name'     => $request->get('name'),
+            'email'    => $request->get('email'),
+            'password' => bcrypt($request->get('password'))
+        ];
+
+        return User::create($credentials);
     }
 
     /**
@@ -49,16 +55,6 @@ class UsersController extends Controller
         return User::find($id);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -68,7 +64,13 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $request;
+        $user = User::find($id);
+        $user->name     => $request->get('name');
+        $user->email    => $request->get('email');
+        $user->password => bcrypt($request->get('password'));
+        $user->save();
+
+        return $user;
     }
 
     /**
