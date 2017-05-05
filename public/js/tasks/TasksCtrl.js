@@ -38,7 +38,6 @@
 
                 this.toggleComplete = function(taskData)
                 {
-                    console.log(taskData);
                     TaskService.updateTask(taskData).then(function(task)
                     {
                         console.log(task);

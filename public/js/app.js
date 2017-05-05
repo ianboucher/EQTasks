@@ -5,6 +5,7 @@
     angular
         .module("equinitasks", [
             "ui.router",
+            "ui.bootstrap"
         ])
         .config(function($stateProvider, $locationProvider)
         {

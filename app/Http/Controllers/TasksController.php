@@ -48,14 +48,14 @@ class TasksController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $userId, $taskId)
     {
-        $task = Task::find($id);
+        $task = Task::find($taskId);
         $task->description = $request->input('description');
         $task->completed   = $request->input('completed');
         $task->save();
 
-        return $task;
+        return [$userId, $taskId];
     }
 
     /**
