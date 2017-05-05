@@ -13,16 +13,29 @@
 </head>
 
 <body>
+    <div class="navbar-wrapper">
+        <nav class="navbar navbar-inverse navbar-static-top">
 
-    <nav class="navbar"> <!-- navigation bar -->
-        <a ui-sref="landing" class="logo">
-            <img src="" alt="EquiniTasks" class="logo">
-        </a>
-        <div class="links-container">
-            <a ui-sref="tasks"   class="navbar-link">Pending Tasks</a>
-            <a ui-sref="archive" class="navbar-link">Completed Tasks</a>
-        </div>
-    </nav>
+                <div class="navbar-header">
+                    <a class="navbar-brand" ui-sref="landing">EquiniTasks</a>
+                </div>
+
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a ui-sref="pending">Pending Tasks</a></li>
+                        <li><a ui-sref="completed">Completed Tasks</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a ui-sref="login">Login</a></li>
+                        <li><a ui-sref="signup">Sign-up</a></li>
+                        <li><a u-sref="#"></a></li>
+                        <li><a ng-click="logout()">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
 
     <div class="container">
         <div class="row row-centered">
