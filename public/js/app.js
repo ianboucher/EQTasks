@@ -25,6 +25,15 @@
                         templateUrl : "js/landing/landing.html"
                     }
                 )
+                .state
+                (
+                    "tasks",
+                    {
+                        url         : "/tasks",
+                        controller  : "TasksCtrl as tasks",
+                        templateUrl : "js/tasks/current_tasks.html"
+                    }
+                )
         }
     )
 })();

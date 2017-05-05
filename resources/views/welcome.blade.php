@@ -42,8 +42,13 @@
     <!-- Bootstrapping -->
     <script src="/js/app.js"></script>
 
+    <!-- Services -->
+    <script src="/js/services/TaskService.js"></script>
+
     <!-- Controllers -->
     <script src="/js/landing/LandingCtrl.js"></script>
+    <script src="/js/tasks/TasksCtrl.js"></script>
+
 
 
 </body>

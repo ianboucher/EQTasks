@@ -65,9 +65,9 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
-        $user->name     => $request->get('name');
-        $user->email    => $request->get('email');
-        $user->password => bcrypt($request->get('password'));
+        $user->name     = $request->get('name');
+        $user->email    = $request->get('email');
+        $user->password = bcrypt($request->get('password'));
         $user->save();
 
         return $user;

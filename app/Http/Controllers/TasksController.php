@@ -52,8 +52,9 @@ class TasksController extends Controller
     {
         $task = Task::find($id);
         $task->description = $request->input('description');
+        $task->completed   = $request->input('completed');
         $task->save();
-        
+
         return $task;
     }
 
