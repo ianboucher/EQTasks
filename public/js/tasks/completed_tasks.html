@@ -1,0 +1,33 @@
+<h1>Completed Tasks</h1>
+
+<section>
+    <form name="newTask">
+
+        <div class="form-group col-xs-10">
+            <label class="sr-only" for="taskDescription">Description</label>
+            <input type="text" class="form-control" ng-model="taskData.description" placeholder="Enter a description"/>
+        </div>
+
+        <input type="button" class="btn btn-default" ng-click="tasks.addTask(taskData)" value="Add Task">
+
+    </form>
+</section>
+
+<br/>
+
+<section>
+    <table class="task-list">
+        <tr>
+            <th class="col-xs-10">Description</th><th>Complete?</th>
+        </tr>
+        <tr class="task-item" ng-repeat="item in tasks.items" ng-hide="!item.completed">
+            <td>{{ item.description }}</td>
+            <td><input type="checkbox"
+                ng-model="item.completed"
+                ng-change="tasks.toggleComplete(item)"
+                ng-true-value="1"
+                ng-false-value="0"/>
+            </td>
+        </tr>
+    </table>
+</section>

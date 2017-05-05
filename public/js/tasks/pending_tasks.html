@@ -20,7 +20,7 @@
         <tr>
             <th class="col-xs-10">Description</th><th>Complete?</th>
         </tr>
-        <tr class="task-item" ng-repeat="item in tasks.items">
+        <tr class="task-item" ng-repeat="item in tasks.items" ng-hide="item.completed">
             <td>{{ item.description }}</td>
             <td><input type="checkbox"
                 ng-model="item.completed"

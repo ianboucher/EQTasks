@@ -28,11 +28,20 @@
                 )
                 .state
                 (
-                    "tasks",
+                    "pending",
                     {
-                        url         : "/tasks",
+                        url         : "/pending",
                         controller  : "TasksCtrl as tasks",
-                        templateUrl : "js/tasks/current_tasks.html"
+                        templateUrl : "js/tasks/pending_tasks.html"
+                    }
+                )
+                .state
+                (
+                    "completed",
+                    {
+                        url         : "/completed",
+                        controller  : "TasksCtrl as tasks",
+                        templateUrl : "js/tasks/completed_tasks.html"
                     }
                 )
         }
