@@ -17,8 +17,8 @@ class UserTest extends TestCase
     */
     public function testGetUsers()
     {
-        $users    = User::all();
-        $response = $this->json('GET', '/api/v1.0.0/users/'.$userId.'/tasks');
+        $users    = User::all()->toArray();
+        $response = $this->json('GET', '/api/v1.0.0/users/');
 
         $response
             ->assertStatus(200)

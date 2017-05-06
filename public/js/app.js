@@ -28,6 +28,24 @@
                 )
                 .state
                 (
+                    "login",
+                    {
+                        url         : "/login",
+                        controller  : "AuthCtrl as auth",
+                        templateUrl : "js/auth/login.html"
+                    }
+                )
+                .state
+                (
+                    "signup",
+                    {
+                        url         : "/signup",
+                        controller  : "AuthCtrl as auth",
+                        templateUrl : "js/auth/signup.html"
+                    }
+                )
+                .state
+                (
                     "pending",
                     {
                         url         : "/pending",
