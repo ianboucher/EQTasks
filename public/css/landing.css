@@ -1,0 +1,23 @@
+body.landing {
+     background-color: rgba(50, 50, 50, 1);
+     background-size: cover;
+     font-family: 'Open Sans';
+     color: white;
+     min-height: 100%;
+     padding-bottom: 15%;
+ }
+
+ .selling-points {
+     position: relative;
+ }
+
+ .point {
+     position: relative;
+     padding: 2rem;
+     text-align: center;
+     opacity: 1;
+ }
+
+ .point .point-title {
+     font-size: 1.25rem;
+ }
