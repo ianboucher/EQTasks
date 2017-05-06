@@ -1,17 +1,24 @@
 <ng-include src="'js/nav/navbar.html'"></ng-include>
 
 <div class="container">
-<h1>Current Tasks</h1>
+
+    <h1>Current Tasks</h1>
 
     <section>
         <form name="newTask">
 
             <div class="form-group col-xs-10">
                 <label class="sr-only" for="taskDescription">Description</label>
-                <input type="text" class="form-control" ng-model="taskData.description" placeholder="Enter a description"/>
+                <input type="text"
+                    class="form-control"
+                    ng-model="taskData.description"
+                    placeholder="Enter a description"/>
             </div>
 
-            <input type="button" class="btn btn-default" ng-click="tasks.addTask(taskData)" value="Add Task">
+            <input type="button"
+                class="btn btn-default"
+                ng-click="tasks.addTask(taskData)"
+                value="Add Task"/>
 
         </form>
     </section>
@@ -19,10 +26,14 @@
     <br/>
 
     <section>
-        <table class="task-list table">
-            <tr>
-                <th>Description</th><th>Complete?</th>
-            </tr>
+        <table class="task-list table table-responsive">
+
+            <thead class="thead-inverse">
+                <tr>
+                    <th class="col-xs-10">Description</th><th>Complete?</th>
+                </tr>
+            </thead>
+
             <tr class="task-item" ng-repeat="item in tasks.items" ng-hide="item.completed">
                 <td>{{ item.description }}</td>
                 <td><input type="checkbox"

@@ -6,30 +6,40 @@
         .module("equinitasks")
         .service("TaskService", [
             "$http",
+            "$cacheFactory",
 
-            function TaskService($http)
+            function TaskService($http, $cacheFactory)
             {
                 var self = this;
+                var $httpDefaultCache = $cacheFactory.get("$http");
 
-                self.getTasks = function()
+                self.getTasks = function(userId)
                 {
-                    return $http.get("/api/v1.0.0/users/11/tasks");
+                    return $http.get("/api/v1.0.0/users/" + userId + "/tasks", { "cache" : true });
                 };
 
-                self.addTask = function(taskData)
+
+                self.addTask = function(userId, taskData)
                 {
-                    return $http.post("/api/v1.0.0/users/11/tasks", {
+                    $httpDefaultCache.removeAll();
+
+                    return $http.post("/api/v1.0.0/users/" + userId + "/tasks", {
                         "description" : taskData.description
                     })
-                }
+                };
 
-                self.updateTask = function(taskData)
+
+                self.updateTask = function(userId, taskData)
                 {
-                    return $http.put("/api/v1.0.0/users/11/tasks/" + taskData.id, {
+                    $httpDefaultCache.removeAll();
+
+                    return $http.put("/api/v1.0.0/users/" + userId + "/tasks/" + taskData.id, {
                         "description" : taskData.description,
                         "completed"   : taskData.completed
                     })
-                }
+                };
+
+                return self;
             }
         ]);
 })();

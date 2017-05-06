@@ -1,6 +1,7 @@
 <ng-include src="'js/nav/navbar.html'"></ng-include>
 
 <div class="container">
+
     <h1>Completed Tasks</h1>
 
     <section>
@@ -19,10 +20,12 @@
     <br/>
 
     <section>
-        <table class="task-list table">
-            <tr>
-                <th class="col-xs-10">Description</th><th>Complete?</th>
-            </tr>
+        <table class="task-list table table-responsive">
+            <thead class="thead-inverse">
+                <tr>
+                    <th class="col-xs-10">Description</th><th>Complete?</th>
+                </tr>
+            </thead>
             <tr class="task-item" ng-repeat="item in tasks.items" ng-hide="!item.completed">
                 <td>{{ item.description }}</td>
                 <td><input type="checkbox"
