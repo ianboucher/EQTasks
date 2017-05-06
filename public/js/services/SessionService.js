@@ -8,8 +8,9 @@
             "$http",
             "$state",
             "$rootScope",
+            "$window",
 
-            function SessionService($http, $state, $rootScope)
+            function SessionService($http, $state, $rootScope, $window)
             {
                 var self = this;
 
@@ -17,7 +18,8 @@
                 {
                     self.currentUser = user.data;
                     self.isAuthenticated = true;
-                    $rootScope.$broadcast("login")
+                    $rootScope.$broadcast("login");
+                    $window.localStorage.setItem("currentUser", angular.toJson(self.currentUser));
                     $state.go("pending");
                 }
 
