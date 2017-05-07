@@ -3,9 +3,11 @@ EquiniTasks
 
 Installation
 ------------------
-EquiniTasks is the result of a 3 hour coding challenge to build a simple LAMP stack to-do app. The work carried out during the 3 hour timeframe was committed to ```eqdata-3hr-test``` branch and then merged to ```master``` at the end of the 3 hours. Subsequent iterations were added to a separate branch ```after-hours```, if you would like to see them.
+EquiniTasks is the result of a 3 hour coding challenge to build a simple LAMP stack to-do app. The work carried out during the 3 hour timeframe was committed to ```eqdata-3hr-test```.
 
 I attempted to commit often and in a way that made it clear in which order I attempted to build the application.
+
+Subsequent work was added to separate branches ```after-hours``` (for general finishing-off) and ```jwt-auth``` (for improved user authentication), which were merged to master.
 
 EquiniTasks was developed with the Laravel/Homestead environment. Assuming you have access to a Homestead environment, clone this repo into your Homestead mapped folder and add the following to your ```~/.homestead/Homestead.yaml file:```
 
@@ -94,3 +96,5 @@ Project Reflection:
   * I would revisit the specification to check for missing functionality and write appropriate tests.
   * Implement the code for the missing functionality.
   * Look/implement additional functionality that would significantly improve the app (e.g. proper authentication)
+
+  **I have implemented these iterative improvements (minus front-end tests) and they can be found in the** ```master``` **branch.**
