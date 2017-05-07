@@ -61,7 +61,7 @@ Summary of Approach:
 2. Create the required migrations, models and relationships (only User and Task).
 
 3. Add the routes, minimal DB seeds and PHPUnit tests.
-    * I lost a lot of time here due to unfamiliarity with the PHPUnit API - I was using deprecated ```seeJson``` syntax, rather than ```assertJson``` due to use of out-of-date documentation. Serves me right for neglecting TDD recently!
+    * I lost a lot of time here due to unfamiliarity with the PHPUnit API - I was trying to use the deprecated ```seeJson``` syntax, rather than the current ```assertJson``` syntax. Serves me right for neglecting TDD recently!
 
 4. Stub basic CRUD controllers for Users and Tasks (committed from my Vagrant box - hence different contributor listed).
 
