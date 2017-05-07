@@ -39,7 +39,7 @@ return [
             'prefix' => '',
         ],
 
-        mysql://be8bcf4af4e2cd:147d38aa@us-cdbr-iron-east-03.cleardb.net/heroku_87556f76bb3c66e?reconnect=true
+        // mysql://be8bcf4af4e2cd:147d38aa@us-cdbr-iron-east-03.cleardb.net/heroku_87556f76bb3c66e?reconnect=true
 
         'mysql' => [
             'driver' => 'mysql',
