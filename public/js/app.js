@@ -19,7 +19,7 @@
 
             // Satellizer configuration that specifies which API
             // route the JWT should be retrieved from
-            $authProvider.loginUrl  = "/tranquil-hollows-14083.herokuapp.com/login";
+            $authProvider.loginUrl  = "/api/v1.0.0/login";
             $authProvider.signupUrl = "/api/v1.0.0/signup";
 
             $stateProvider
