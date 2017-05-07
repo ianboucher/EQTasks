@@ -25,7 +25,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.1.3/ui-bootstrap-tpls.min.js"></script>
     <script src="//cdn.jsdelivr.net/satellizer/0.15.5/satellizer.min.js"></script>
 
-
     <!-- Bootstrapping -->
     <script src="/js/app.js"></script>
 

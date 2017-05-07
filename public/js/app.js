@@ -8,7 +8,7 @@
             "ui.bootstrap",
             "satellizer"
         ])
-        .config(function($stateProvider, $locationProvider)
+        .config(function($stateProvider, $locationProvider, $authProvider)
         {
             $locationProvider
                 .html5Mode

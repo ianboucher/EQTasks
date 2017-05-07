@@ -6,17 +6,18 @@
         .module("equinitasks")
         .service("SessionService", [
             "$http",
+            "$auth",
             "$state",
             "$rootScope",
             "$window",
 
-            function SessionService($http, $state, $rootScope, $window)
+            function SessionService($http, $auth, $state, $rootScope, $window)
             {
                 var self = this;
 
                 var authenticate = function(user)
                 {
-                    self.currentUser = user.data;
+                    self.currentUser = user;
                     self.isAuthenticated = true;
                     $rootScope.$broadcast("login");
                     $window.localStorage.setItem("currentUser", angular.toJson(self.currentUser));
@@ -26,13 +27,13 @@
 
                 self.login = function(credentials)
                 {
-                    $http.post("/api/v1.0.0/login", {
-                        "email"    : credentials.email,
-                        "password" : credentials.password
-                    })
-                    .then(function(user)
+                    $auth.login(credentials).then(function()
                     {
-                        authenticate(user);
+                        return $http.get("/api/v1.0.0/auth")
+                    })
+                    .then(function(response)
+                    {
+                        authenticate(response.data.user);
                     })
                     .catch(function(error)
                     {
@@ -43,14 +44,9 @@
 
                 self.signup = function(credentials)
                 {
-                    $http.post("/api/v1.0.0/signup", {
-                        "name"     : credentials.name,
-                        "email"    : credentials.email,
-                        "password" : credentials.password
-                    })
-                    .then(function(user)
+                    $auth.signup(credentials).then(function(response)
                     {
-                        authenticate(user);
+                        authenticate(response.data.user);
                     })
                     .catch(function(error)
                     {
