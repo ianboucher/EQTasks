@@ -1,13 +1,18 @@
 EquiniTasks
 =================
 
+EquiniTasks is the result of a 3 hour coding challenge to build a simple LAMP stack to-do app. The work carried out during the 3 hour timeframe was committed to ```eqdata-3hr-test```.
+
+I attempted to commit often and in a way that made clear the order in which I attempted to build the application.
+
+Subsequent work was added to separate branches, ```after-hours``` (for general finishing-off) and ```jwt-auth``` (for improved user authentication), which have been merged to master.
+
 Installation
 ------------------
-EquiniTasks is the result of a 3 hour coding challenge to build a simple LAMP stack to-do app. The work carried out during the 3 hour timeframe was committed to ```eqdata-3hr-test``` branch and then merged to ```master``` at the end of the 3 hours. Subsequent iterations were added to a separate branch ```after-hours```, if you would like to see them.
 
-I attempted to commit often and in a way that made it clear in which order I attempted to build the application.
+EquiniTasks was developed within the Laravel/Homestead environment, and the following instructions assume access to a Homestead environment:
 
-EquiniTasks was developed with the Laravel/Homestead environment. Assuming you have access to a Homestead environment, clone this repo into your Homestead mapped folder and add the following to your ```~/.homestead/Homestead.yaml file:```
+**Clone this repo into your Homestead mapped folder and add the following to your ```~/.homestead/Homestead.yaml file:```**
 
 ```ruby
 sites:
@@ -18,19 +23,19 @@ databases:
   - eqtasks_db      
 ```
 
-Then map the IP address in your /etc/hosts file, like so:
+**Then map the IP address in your /etc/hosts file, like so:**
 
 ```
 192.168.10.10   eqtasks.local
 ```
 
-Then it should be a case of navigating to your Homestead directory and running:
+**Then it should be a case of navigating to your Homestead directory and running:**
 
 ```
 vagrant up --provision
 ```
 
-Once the Vagrant box has finished provisioning, run:
+**Once the Vagrant box has finished provisioning, run:**
 
 ```
 vagrant ssh
@@ -39,7 +44,7 @@ php artisan migrate
 php artisan db:seed
 ```
 
-I've added the .env file to this repo, so you should now have everything you need. Navigate to:
+**I've added the .env file to this repo, so you should now have everything you need. Navigate to:**
 
 ```
 http://eqtasks.local
@@ -94,3 +99,5 @@ Project Reflection:
   * I would revisit the specification to check for missing functionality and write appropriate tests.
   * Implement the code for the missing functionality.
   * Look/implement additional functionality that would significantly improve the app (e.g. proper authentication)
+
+  **I have implemented these iterative improvements (minus front-end tests) and they can be found in the** ```master``` **branch.**

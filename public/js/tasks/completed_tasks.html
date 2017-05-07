@@ -5,14 +5,20 @@
     <h1>Completed Tasks</h1>
 
     <section>
-        <form name="newTask">
+        <form name="newTask" ng-submit="tasks.addTask(taskData)">
 
             <div class="form-group col-xs-10">
                 <label class="sr-only" for="taskDescription">Description</label>
-                <input type="text" class="form-control" ng-model="taskData.description" placeholder="Enter a description"/>
+                <input type="text"
+                    class="form-control"
+                    ng-model="taskData.description"
+                    placeholder="Enter a description"/>
             </div>
 
-            <input type="button" class="btn btn-default" ng-click="tasks.addTask(taskData)" value="Add Task">
+            <input type="submit"
+                class="btn btn-default"
+                ng-click="tasks.addTask(taskData)"
+                value="Add Task"/>
 
         </form>
     </section>
