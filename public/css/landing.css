@@ -21,3 +21,7 @@ body.landing {
  .point .point-title {
      font-size: 1.25rem;
  }
+
+.point .ion-android-checkmark-circle {
+    font-size: 5rem;
+}
