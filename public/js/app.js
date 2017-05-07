@@ -5,16 +5,22 @@
     angular
         .module("equinitasks", [
             "ui.router",
-            "ui.bootstrap"
+            "ui.bootstrap",
+            "satellizer"
         ])
         .config(function($stateProvider, $locationProvider)
         {
             $locationProvider
                 .html5Mode
                 ({
-                    enabled: true,
-                    requireBase: false
+                    enabled     : true,
+                    requireBase : false
                 });
+
+            // Satellizer configuration that specifies which API
+            // route the JWT should be retrieved from
+            $authProvider.loginUrl  = "/api/v1.0.0/login";
+            $authProvider.signupUrl = "/api/v1.0.0/signup";
 
             $stateProvider
                 .state
