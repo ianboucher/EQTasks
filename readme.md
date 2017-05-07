@@ -59,24 +59,24 @@ Summary of Approach:
 1. Consult specification for features & technical requirements
 2. Create the required migrations, models and relationships (only User and Task)
 3. Add the routes, minimal DB seeds and PHPUnit tests.
-  * I lost a lot of time here due to unfamiliarity with the PHPUnit API - I was using deprecated ```seeJson``` syntax, rather than ```assertJson``` due to use of out-of-date documentation. Serves me right for neglecting TDD recently!
+  I lost a lot of time here due to unfamiliarity with the PHPUnit API - I was using deprecated ```seeJson``` syntax, rather than ```assertJson``` due to use of out-of-date documentation. Serves me right for neglecting TDD recently!
 4. Stub basic CRUD controllers for Users and Tasks (committed from my Vagrant box - hence different contributor listed).
 5. Add crud actions to controllers. Further attempts to test API with PHPUnit, but had to move on and test manually with Postman.
 6. Set-up Angular and front-end dependencies. Add basic landing page and associated controller.
 7. Add task view and and associated controller. Add TasksService service to handle Task related communication between API and Angular.
-  * I also lost time at this stage due to encountering an issue whereby Angular checkboxes are compatible only with boolean true/false values and not with integer 0/1 values stored in MySQL. This was subsequently solved by the addition of the UI-Bootstrap library. On reflection, this was an avoidable consequence of my decision to increase complexity (and therefore risk) by using a full front-end framework, despite the time constraint.
+  I also lost time at this stage due to encountering an issue whereby Angular checkboxes are compatible only with boolean true/false values and not with integer 0/1 values stored in MySQL. This was subsequently solved by the addition of the UI-Bootstrap library. On reflection, this was an avoidable consequence of my decision to increase complexity (and therefore risk) by using a full front-end framework, despite the time constraint.
 
 
 Project Reflection:
 ---------------
 * Why was the taken approach chosen?
-  * The honest answer to this is that, given the time constraint, I chose to use patterns that are familiar to me. As I have recently been building Angular front-ends on top of Laravel APIs, this was the approach that I felt gave me the best chance of a good result.
+  * The honest answer is that, given the time constraint, I chose to use technologies/patterns that are familiar to me. As I have recently been building Angular front-ends on top of Laravel APIs, this was the approach that I felt gave me the best chance of a good result.
   * Angular's data binding and the SPA approach should produce a responsive UI that improves the user experience by enabling the addition/completion of tasks and the changing of views without page reloads.
   * Using a front-end framework such as Angular, allied to a RESTful JSON API should allow the front-end to be loosely coupled to the back-end. Assuming correct design of the service layer of the Angular app, the back-end could be swapped with minimal changes to the front-end.
 
 * What are the disadvantages of this approach and advantages of another?
   * An Angular front-end could be considered overkill for such a simple application. SPAs increase code complexity and initial page load times.
-  * Server-side page rendering and progressive enhancement with AJAX could reproduce the responsiveness of the UI with less code complexity and arguably more reliability as you are less reliant on client-side JavaScript.
+  * Server-side page rendering and progressive enhancement with AJAX could reproduce the responsiveness of the UI with less code complexity and arguably more reliability, due to less reliance on client-side JavaScript.
 
 * What would I have done differently given more time?
   * I would have investigated the use of Laravel for the full-stack, with progressive enhancement/AJAX. I have used AJAX with Rails, but it's not something I have done yet with Laravel.
