@@ -9,19 +9,23 @@ use App\Task;
 class TasksController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a collection of the resource.
      *
+     * @param  int  $userId
      * @return Response
      */
-    public function index()
+    public function index($userId)
     {
-        $tasks = Task::all();
+        $user = User::find($userId);
+        $tasks = $user->tasks()->get();
         return $tasks;
     }
 
     /**
      * Store a newly created resource in storage.
      *
+     * @param  Request
+     * @param  int  $userId
      * @return Response
      */
     public function store(Request $request, $userId)
@@ -34,23 +38,26 @@ class TasksController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $userId
+     * @param  int  $taskId
      * @return Response
      */
-    public function show($taskId)
+    public function show($userId, $taskId)
     {
-        return Task::find($id);
+        return Task::find($taskId);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  Request
+     * @param  int  $userId
+     * @param  int  $taskId
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $userId, $taskId)
     {
-        $task = Task::find($id);
+        $task = Task::find($taskId);
         $task->description = $request->input('description');
         $task->completed   = $request->input('completed');
         $task->save();
@@ -61,12 +68,13 @@ class TasksController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $userId
+     * @param  int  $taskId
      * @return Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy($userId, $taskId)
     {
-        $task = Task::find($id);
+        $task = Task::find($taskId);
         $task->delete();
 
         return 'Task: '. $task->name . ' successfully deleted';

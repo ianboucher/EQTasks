@@ -8,7 +8,7 @@ use App\User;
 class UsersController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a collection of the resource.
      *
      * @return Response
      */
@@ -18,15 +18,6 @@ class UsersController extends Controller
         return $users;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.

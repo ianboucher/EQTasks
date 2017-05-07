@@ -19,6 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(["prefix" => "v1.0.0"], function()
 {
+    Route::post('signup',           'AuthController@signup');
+    Route::post('login',            'AuthController@login');
+    Route::get('auth',              'AuthController@getAuthenticatedUser');
+
     Route::resource('users',        'UsersController');
     Route::resource('users.tasks',  'TasksController');
 });

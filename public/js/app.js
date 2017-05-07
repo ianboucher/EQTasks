@@ -5,15 +5,22 @@
     angular
         .module("equinitasks", [
             "ui.router",
+            "ui.bootstrap",
+            "satellizer"
         ])
-        .config(function($stateProvider, $locationProvider)
+        .config(function($stateProvider, $locationProvider, $authProvider)
         {
             $locationProvider
                 .html5Mode
                 ({
-                    enabled: true,
-                    requireBase: false
+                    enabled     : true,
+                    requireBase : false
                 });
+
+            // Satellizer configuration that specifies which API
+            // route the JWT should be retrieved from
+            $authProvider.loginUrl  = "/api/v1.0.0/login";
+            $authProvider.signupUrl = "/api/v1.0.0/signup";
 
             $stateProvider
                 .state
@@ -27,11 +34,38 @@
                 )
                 .state
                 (
-                    "tasks",
+                    "login",
                     {
-                        url         : "/tasks",
+                        url         : "/login",
+                        controller  : "AuthCtrl as auth",
+                        templateUrl : "js/auth/login.html"
+                    }
+                )
+                .state
+                (
+                    "signup",
+                    {
+                        url         : "/signup",
+                        controller  : "AuthCtrl as auth",
+                        templateUrl : "js/auth/signup.html"
+                    }
+                )
+                .state
+                (
+                    "pending",
+                    {
+                        url         : "/pending",
                         controller  : "TasksCtrl as tasks",
-                        templateUrl : "js/tasks/current_tasks.html"
+                        templateUrl : "js/tasks/pending_tasks.html"
+                    }
+                )
+                .state
+                (
+                    "completed",
+                    {
+                        url         : "/completed",
+                        controller  : "TasksCtrl as tasks",
+                        templateUrl : "js/tasks/completed_tasks.html"
                     }
                 )
         }

@@ -6,26 +6,38 @@
         .module("equinitasks")
         .controller("TasksCtrl", [
             "$scope",
+            "$state",
             "TaskService",
+            "$window",
 
-            function TasksCtrl($scope, TaskService)
+            function TasksCtrl($scope, $state, TaskService, $window)
             {
                 var self = this;
+                var currentUser = null;
 
-                TaskService.getTasks().then(function(tasks)
+                if ($window.localStorage["currentUser"])
                 {
-                    self.items = tasks.data;
-                    console.log(self.items);
-                })
-                .catch(function(error)
+                    currentUser = JSON.parse($window.localStorage["currentUser"]);
+                    
+                    TaskService.getTasks(currentUser.id).then(function(tasks)
+                    {
+                        self.items = tasks.data;
+                    })
+                    .catch(function(error)
+                    {
+                        console.log(error);
+                    });
+                }
+                else
                 {
-                    console.log(error);
-                });
+                    // TODO: Add flash message for unauthenticated users
+                    $state.go("login");
+                }
 
 
                 this.addTask = function(taskData)
                 {
-                    TaskService.addTask(taskData).then(function(task)
+                    TaskService.addTask(currentUser.id, taskData).then(function(task)
                     {
                         self.items.push(task.data);
                         $scope.taskData = {};
@@ -36,14 +48,10 @@
                     });
                 }
 
+
                 this.toggleComplete = function(taskData)
                 {
-                    console.log(taskData);
-                    TaskService.updateTask(taskData).then(function(task)
-                    {
-                        console.log(task);
-                    })
-                    .catch(function(error)
+                    TaskService.updateTask(currentUser.id, taskData).catch(function(error)
                     {
                         console.log(error);
                     });
