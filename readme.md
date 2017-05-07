@@ -54,6 +54,19 @@ Project Dependencies:
 - [UI-Router](https://ui-router.github.io/) (via CDN)
 
 
+Summary of Approach:
+---------------
+1. Consult specification for features & technical requirements
+2. Create the required migrations, models and relationships (only User and Task)
+3. Add the routes, minimal DB seeds and PHPUnit tests.
+  * I lost a lot of time here due to unfamiliarity with the PHPUnit API - I was using deprecated ```seeJson``` syntax, rather than ```assertJson``` due to use of out-of-date documentation. Serves me right for neglecting TDD recently!
+4. Stub basic CRUD controllers for Users and Tasks (committed from my Vagrant box - hence different contributor listed).
+5. Add crud actions to controllers. Further attempts to test API with PHPUnit, but had to move on and test manually with Postman.
+6. Set-up Angular and front-end dependencies. Add basic landing page and associated controller.
+7. Add task view and and associated controller. Add TasksService service to handle Task related communication between API and Angular.
+  * I also lost time at this stage due to encountering an issue whereby Angular checkboxes are compatible only with boolean true/false values and not with integer 0/1 values stored in MySQL. This was subsequently solved by the addition of the UI-Bootstrap library. On reflection, this was an avoidable consequence of my decision to increase complexity (and therefore risk) by using a full front-end framework, despite the time constraint.
+
+
 Project Reflection:
 ---------------
 * Why was the taken approach chosen?
